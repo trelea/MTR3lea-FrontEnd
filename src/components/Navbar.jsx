@@ -4,7 +4,6 @@ import { useContext, useState } from "react";
 import { UserContext } from "./Loyout";
 import { QueryPosts } from "./QueryPosts";
 
-
 export const Navbar = () => {
     const { data } = useContext(UserContext);
     const [searchOutput, setSearchOutput] = useState([]);
@@ -61,14 +60,12 @@ export const Navbar = () => {
                     </div> : 
                     <div className="flex justify-between items-center">
 
-
                         <button className="bg-gray-800 border border-gray-800 text-white rounded-3xl font-semibold p-1 px-4">
                             <Link to='/signin'onClick={() => window.location.href='/signin'}>SignIn</Link>
                         </button>
                         <button className="bg-white text-gray-800 border border-gray-800 rounded-3xl font-semibold p-1 px-4 ml-4 hidden md:block">
                             <Link to='/signup' onClick={() => window.location.href='/signup'}>SignUp</Link>
                         </button>
-
 
                     </div>
                 }      
