@@ -26,7 +26,7 @@ export const CommentSection = ({ comments, post_id }) => {
 					placeholder="Add a Comment..."
 					onChange={e => setCommentText({
 						...commentText,
-						comment : e.target.value
+						comment: e.target.value
 					})}/>
 				{
 					commentText.comment.length >= 1 && 
@@ -36,6 +36,7 @@ export const CommentSection = ({ comments, post_id }) => {
 								Comment
 							</button>
 						</div>
+					
 				}
 			</div>
 			{

@@ -44,10 +44,10 @@ export const PostSection = ({ post }) => {
                     { 
                     	post.post_thumbnail !== "/images/postsThumbnails/defaultPostThumbnail.jpg" && 
 	                        <div className="flex justify-center items-center">
-	                            <img className="mt-4 rounded-lg max-h-[500px] min-h-[250px]" src={`${process.env.REACT_APP_APIURL}${post.post_thumbnail}`} alt="" />
+	                            <img className="mt-4 rounded-lg max-h-[500px] aspect-auto" src={`${process.env.REACT_APP_APIURL}${post.post_thumbnail}`} alt="" />
 	                        </div>
                     }
-                    <h1 className="mt-4 font-normal text-lg text-gray-800 break-words">{post.post_description}</h1> 
+                    <h1 className="whitespace-pre-line align-bottom mt-4 font-normal text-lg text-gray-800 break-words">{post.post_description}</h1> 
                 </div>
                 
                 <div className="flex gap-2 items-center mt-4">

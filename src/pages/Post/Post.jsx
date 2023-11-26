@@ -34,9 +34,8 @@ export const Post = () => {
     )
     return (
         <Loyout>
-            
             <div className="bg-slate-100 pt-20 flex flex-col items-center w-screen p-2 min-h-screen">
-                <div className="flex flex-col gap-2 lg:w-[40%] ">
+                <div className="flex flex-col gap-2 lg:w-[40%] w-full">
                     <UploadButton/>
                     <PostSection post={data.post}/>
                     <CommentSection comments={data.comments} post_id={data.post.post_id}/>     

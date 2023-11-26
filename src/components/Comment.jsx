@@ -7,7 +7,7 @@ export const Comment = ({ comment }) => {
                 <h1 className="font-semibold text-xs text-gray-600">Commented at: {new Date(comment.post_created_at).toLocaleString()}</h1>
             </div>
             <div className="mt-1 border-b mb-6 border-gray-300">
-            	<h1 className="font-medium text-md text-gray-800 break-words mb-6">{comment.comment_text}</h1>
+            	<h1 className="whitespace-pre-line align-bottom font-medium text-md text-gray-800 break-words mb-6">{comment.comment_text}</h1>
             </div>
 		</>
 	)

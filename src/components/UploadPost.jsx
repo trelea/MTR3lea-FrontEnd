@@ -11,10 +11,11 @@ export const UploadPost = ({uploadPost, setUploadPost}) => {
 	const [dropBtn, setDropBtn] = useState(true);
 
 	const checkExtension = (fileName) => {
-		return fileName.split('.').pop() === 'jpg' ? true : false;
-		return fileName.split('.').pop() === 'jpeg' ? true : false;
-		return fileName.split('.').pop() === 'png' ? true : false;
-		return fileName.split('.').pop() === 'webp' ? true : false;
+		if (fileName.split('.').pop() === 'jpg') return true;
+		if (fileName.split('.').pop() === 'jpeg') return true;
+		if (fileName.split('.').pop() === 'png') return true;
+		if (fileName.split('.').pop() === 'webp') return true;
+		return false;
 	}
 
 	const HandleNewPost = (e) => {
@@ -69,9 +70,29 @@ export const UploadPost = ({uploadPost, setUploadPost}) => {
 							<div className="text-center">
 								{
 									thumbnail ?
-										<div className="p-2 text-xl font-medium">
-											<h1>{thumbnail.name}</h1>
-										</div> 
+										<>
+											<div className="p-2 text-xl font-medium">
+												<h1>{thumbnail.name}</h1>
+											</div> 
+											<h3 className="mt-2 text-sm font-medium text-gray-800">
+	            								<label className="relative cursor-pointer">
+	                								<span>Drag and drop</span>
+	                								<span className="text-indigo-600"> or browse </span>
+	                								<span>to upload</span>
+	                								<input 
+	                									accept="images/*"
+	                									type="file" 
+	                									name="file" 
+	                									id="file" 
+	                									className="hidden"
+	                									onChange={e => {
+	                										if (e.target.files && checkExtension(e.target.files[0].name)) return setThumbnail(e.target.files[0]);		
+	                										return setThumbnail(null);
+	                									}}/>
+	            								</label>
+        									</h3>
+        									<p className="mt-1 text-xs text-gray-600">Only PNG, JPG, WEBP up to ~10MB.</p>
+        								</>
 										:
 										<>
 											<img className="mx-auto h-12 w-12" src="https://www.svgrepo.com/show/357902/image-upload.svg" alt=""/>
