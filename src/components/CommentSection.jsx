@@ -17,7 +17,7 @@ export const CommentSection = ({ comments, post_id }) => {
 			.then(d => window.location.reload());
 	}
 	return (
-		<div className="w-full bg-white rounded-lg border border-gray-300 p-4">
+		<div className="w-full bg-white rounded-lg border border-gray-300 p-4 mb-2">
 			<div className="flex flex-col mb-8">
 				
 				<textarea
@@ -36,7 +36,6 @@ export const CommentSection = ({ comments, post_id }) => {
 								Comment
 							</button>
 						</div>
-					
 				}
 			</div>
 			{

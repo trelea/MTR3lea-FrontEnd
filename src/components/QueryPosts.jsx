@@ -10,7 +10,7 @@ export const QueryPosts = ({ details }) => {
 
 				<div className="flex justify-center items-center">
 					<div className="h-10 w-10">
-						<img src={`${process.env.REACT_APP_APIURL}${details.post_thumbnail}`} className="h-10 w-10 aspect-square rounded-full"/>
+						<img src={`${process.env.REACT_APP_APIURL}${details.post_thumbnail}`} className="h-10 w-10 aspect-square rounded-full" alt="img"/>
 					</div>
 				</div>
 

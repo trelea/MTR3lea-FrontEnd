@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# [m]TR3lea Social Media Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to __[m]TR3lea__, a cutting-edge social media platform that focuses on sharing and engaging with Interesting Announcements. Built with the powerful __PERN__ stack (PostgreSQL, Express.js, React.js, and Node.js), __[m]TR3lea__ combines a seamless user experience with robust features.
 
-## Available Scripts
+Check Platform On: WILL_PASTE_A_LINK
 
-In the project directory, you can run:
+![Home Page](./docs/imgs/home.png)
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ### Front-end Development:
+    - React.js Library
+    - TailwindCSS CSS Framework for a sleek and responsive design
+    - React-Query for efficient API fetching
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ### Back-end Development:
+    - PostgreSQL as the main database
+    - PG module as ORM for interaction between express and PostgreSQL
+    - Express.js for building API endpoints, controllers, middlewares, routes...
+    - Nodemailer for OTP verification code.
+    - JWT (JSON Web Tokens) for authentication.
 
-### `npm test`
+## Authentication
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+__[m]TR3lea__ employs secure authentication operations managed by the Auth API controllers. __JWT__ (JSON Web Tokens) are used for secure authentication. Here are the endpoints for authentication apis:
 
-### `npm run build`
+- ### /signup and /signin :
+    - Complementary APIs for creating a new account and verifying the user. __/signup__ -> call server for sending an OTP code on user email inputs to verify if its real email.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Alt text](./docs/imgs/signup.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- ### /signin:
+    - Log in to an existing user account securely.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Alt text](./docs/imgs/signin.png)
 
-### `npm run eject`
+- ### /signout:
+    - Log out from the current account.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+These authentication and validation APIs are available in the [m]TR3lea BackEnd repository.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## CRUD Operations
 
-## Learn More
+The logic for creating, reading, updating, and deleting (CRUD) operations is controlled by the CRUD APIs. These APIs enable users to post Interesting Announcements, like them, and comment on them, fostering a dynamic and engaging environment. CRUD APIs available in the [m]TR3lea BackEnd repository.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Data Storage and Security
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+User authentication data is stored securely in an encrypted string in a cookie session. This session is sent by the server to the React client, and the data is saved in cookies on the user's browser. This ensures both security and convenience in managing user sessions.
 
-### Code Splitting
+## Getting Started  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### To get started with __[m]TR3lea__, follow these steps:
 
-### Analyzing the Bundle Size
+#### 1. Clone the __[m]TR3lea__ FrontEnd repository:
+    git clone https://github.com/trelea/MTR3lea-FrontEnd.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### 2. Clone the [m]TR3lea BackEnd repository for access to all APIs.
+    git clone https://github.com/trelea/MTR3lea-BackEnd.git
 
-### Making a Progressive Web App
+#### 3. Set up the PostgreSQL database.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### 4. Install the necessary dependencies using npm.
+    cd ./MTR3lea-FrontEnd && npm install --save
+    cd ./MTR3lea-BackEnd && npm install --save
 
-### Advanced Configuration
+#### 5. Run the application and start exploring the world of [m]TR3lea.
+    MTR3lea-FrontEnd$ npm start &&
+    MTR3lea-BackEnd$ npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Explore the __[m]TR3lea__ community, share your Interesting Announcements, and engage with other users in a secure and user-friendly environment.
 
-### Deployment
+For more details, check out the __[m]TR3lea__ BackEnd repository: https://github.com/trelea/MTR3lea-BackEnd.git.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Happy __[m]TR3lea-ing! 🚀__
