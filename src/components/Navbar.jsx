@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UserContext } from "./Loyout";
 import { QueryPosts } from "./QueryPosts";
+import { AccMenu } from "./AccMenu";
 
 export const Navbar = () => {
     const { data } = useContext(UserContext);
     const [searchOutput, setSearchOutput] = useState([]);
+    const [userMenu, setUserMenu] = useState(false);
 
     const HandleSearchPosts = (e) => {
         e.preventDefault()
@@ -20,6 +22,9 @@ export const Navbar = () => {
 
     return (  
         <>
+            {
+                userMenu && <AccMenu/>
+            }
             <nav className="flex fixed w-screen py-3 sm:px-10 bg-white border-b border-gray-200 justify-between px-4">
                 <div className="flex items-center justify-between">
                     <Link to='/home' onClick={() => window.location.href='/home'} className="flex items-center">
@@ -54,10 +59,12 @@ export const Navbar = () => {
                 { data.user_id ? 
                     <div className="flex justify-between items-center">
                         <h1 className="text-lg font-medium text-center text-gray-800 mr-2 hidden md:block" >{data.user_name}</h1>
-                        <button className="border border-gray-800 flex items-center justify-center rounded-full">
+                        <button className="border border-gray-800 flex items-center justify-center rounded-full"
+                        onClick={() => setUserMenu(!userMenu)}>
                             <img className="object-cover w-8 h-8 rounded-full" src={`${process.env.REACT_APP_APIURL}${data.user_thumbnail}`} alt="" />
                         </button>
-                    </div> : 
+                    </div> 
+                    : 
                     <div className="flex justify-between items-center">
 
                         <button className="bg-gray-800 border border-gray-800 text-white rounded-3xl font-semibold p-1 px-4">
