@@ -3,8 +3,8 @@ export const Pagination = ({ serachParams, setSearchParams }) => {
     return (
         <div className="flex flex-col justify-center items-center mb-4">
             <div className="flex gap-1">
-                <select id="underline_select" class="block py-2 px-3 text-lg font-medium text-gray-800 bg-transparent text-center hover:bg-gray-200 rounded-2xl border border-gray-400">
-                    <option selected>Limit {serachParams.get("limit")}</option>
+                <select id="underline_select" className="block py-2 px-3 text-lg font-medium text-gray-800 bg-transparent text-center hover:bg-gray-200 rounded-2xl border border-gray-400">
+                    <option defaultValue>Limit {serachParams.get("limit")}</option>
                     <option value="20" onClick={() => setSearchParams({
                         page: serachParams.get("page"),
                         limit: "20"

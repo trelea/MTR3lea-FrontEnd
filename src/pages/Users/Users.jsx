@@ -4,6 +4,8 @@ import { useQuery } from "react-query";
 import { Page404 } from "../404";
 import { Modal } from "../../components/Modal";
 import { Home } from "../Home/Home";
+import { CardPost } from "../../components/CardPost";
+import { CardUser } from "../../components/CardUser";
 
 export const Users = () => {
     const user = useParams();
@@ -31,8 +33,16 @@ export const Users = () => {
 
     return (
         <Loyout>
-            <div className="pt-20">
-                {JSON.stringify(data)}
+            <div className="bg-slate-100 pt-20 flex flex-col items-center w-screen p-2">
+                <div className="flex flex-col gap-2 lg:w-[40%] ">
+                    <CardUser/>
+                    <div className="flex flex-col gap-2">
+                        {data.posts.map((post) => {
+                            return <CardPost key={post.post_id} post={post} postOptions={true}/> 
+                        })}
+                    </div>
+                     
+                </div>         
             </div>
             
         </Loyout>

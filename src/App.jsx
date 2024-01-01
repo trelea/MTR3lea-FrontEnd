@@ -18,13 +18,16 @@ export default function App(){
                 
                 <Route path="/" element={<Home/>} />
                 <Route path="/home" element={<Home/>} />
+                <Route path="/index" element={<Home/>} />
+
                 <Route path="/signin" element={<Signin/>} />
                 <Route path="/signup" element={<Signup/>} />
+
                 <Route path="/post/:postId" element={<Post/>} />
                 <Route path="/user/:userName" element={<Users/>} />
-                {/** <Route path="/account/settings" element={} /> */}
-                
 
+                {/** <Route path="/account/settings" element={} /> */}
+            
                 <Route path="*" element={<Page404/>} />
 
             </Routes>

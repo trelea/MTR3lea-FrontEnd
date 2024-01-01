@@ -6,7 +6,7 @@ export const Modal = (action) => {
     const navigate = useNavigate();
 
     return (
-        <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 z-50">
             <div className="m-5 rounded-2xl overflow-y-auto bg-white sm:w-[75%] md:w-[50%] lg:w-[40%] xl:w-[25%]">
                 <div className="p-3">
 

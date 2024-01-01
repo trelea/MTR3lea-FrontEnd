@@ -46,7 +46,7 @@ export const UploadPost = ({uploadPost, setUploadPost}) => {
 	}
 
 	return (
-		<div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-80 md:px-24 lg:px-48 xl:px-96">
+		<div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-80 md:px-24 lg:px-48 xl:px-96 z-50">
 			<div className="bg-white p-4 rounded-2xl w-full mx-4">
 
 				<div className="flex justify-end">

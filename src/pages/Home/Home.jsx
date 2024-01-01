@@ -7,10 +7,7 @@ import { Pagination } from "../../components/Pagination.jsx";
 
 
 export const Home = () => {
-    const [serachParams, setSearchParams] = useSearchParams({
-        page: 1,
-        limit: 20
-    });
+    const [serachParams, setSearchParams] = useSearchParams({ page: 1, limit: 20 });
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError,   setIsError  ] = useState(false);
@@ -38,7 +35,7 @@ export const Home = () => {
                     <UploadButton/>
                     <div className="flex flex-col gap-2">
                         {posts.map((post) => {
-                            return <CardPost key={ post.post_id } post={ post } /> 
+                            return <CardPost key={post.post_id} post={post} postOptions={false}/> 
                         })}
                     </div>
                     <Pagination serachParams={serachParams} setSearchParams={setSearchParams}/>  

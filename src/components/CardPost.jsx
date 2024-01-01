@@ -3,11 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "./Loyout";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ShareBtn } from "./ShareBtn";
+import { PostOptions } from "./PostOptions";
 
-export const CardPost = ({ post }) => {
+export const CardPost = ({ post, postOptions }) => {
     const { data } = useContext(UserContext);
     const navigate = useNavigate();
     const [copied, setCopied] = useState(false);
+    const [previewPostOptions, setPreviewPostOptions] = useState(false);
 
     const [likeStatus, setLikeStatus] = useState({
         userLiked: post.post_likes.includes(data.user_name),
@@ -37,13 +39,34 @@ export const CardPost = ({ post }) => {
                 copied && <ShareBtn link={`${window.location.origin}/post/${post.post_id}`}/>
             }
             <div className="w-full bg-white rounded-lg border border-gray-300 p-4 hover:border-gray-400 hover:bg-gray-50">
-                <Link to={`/post/${post.post_id}`}>
+  
+                <div className="relative flex justify-between">
                     <div className="flex gap-2 items-center">
-                        <img className="rounded-full object-cover h-6 w-6" src={`${process.env.REACT_APP_APIURL}${post.user_thumbnail}`} alt="" />
-                        <h1 className="font-semibold text-sm text-gray-700 hover:underline hover:text-blue-700">m/{post.user_name}</h1>
+                        <Link to={`/user/${post.user_name}`} className="flex gap-2 items-center">
+                            <img className="rounded-full object-cover h-6 w-6" src={`${process.env.REACT_APP_APIURL}${post.user_thumbnail}`} alt="" />
+                            <h1 className="font-semibold text-sm text-gray-700 hover:underline hover:text-blue-700">m/{post.user_name}</h1>
+                        </Link>
                         <h1 className="font-semibold text-xs text-gray-600">Posted at: {new Date(post.post_created_at).toLocaleString()}</h1>
                     </div>
+                    {
+                        (data.user_name === post.user_name && postOptions) && 
+                            <button className="p-1 px-2 rounded-full hover:bg-slate-200"
+                                onClick={() => setPreviewPostOptions(!previewPostOptions)}
+                                onBlur={(e) => {
+                                    console.log(e.relatedTarget)
+                                    if (e.relatedTarget === null) return setPreviewPostOptions(false);
+                                    if (e.relatedTarget.attributes[0].value === `/user/${data.user_name}`) return setPreviewPostOptions(true);
+                                    return setPreviewPostOptions(false);
+                                }}>
+                                <img className="h-4 w-4 aspect-square" src="https://img.icons8.com/material-rounded/24/menu-2.png" alt="menu-2"/>
+                            </button> 
+                    }
+                    {
+                        previewPostOptions && <PostOptions setPreviewPostOptions={setPreviewPostOptions} post_id={post.post_id} post_username={post.user_name}/>
+                    }
+                </div>
 
+                <Link to={`/post/${post.post_id}`}>
                     <div className="pt-2">
                         <h1 className="font-bold text-lg leading-tight">{post.post_title}</h1>
                         <h1 className="font-normal text-sm text-gray-700 pt-1 w-fit hover:underline hover:text-blue-700">Click to read more ...</h1>
