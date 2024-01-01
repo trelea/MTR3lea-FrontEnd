@@ -16,7 +16,7 @@ export const Loyout = ({ children }) => {
     return (
         <UserContext.Provider value = {{data, isLoading, isError }}>
             <Navbar />
-            { children } 
+            { children }
         </UserContext.Provider>  
     )
 }

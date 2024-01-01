@@ -25,7 +25,7 @@ export const Navbar = () => {
     return (  
         <>  
             {
-                userMenu && <AccMenu/>
+                userMenu && <AccMenu setUserMenu={setUserMenu}/>
             }
             <nav className="flex fixed w-screen py-3 sm:px-10 bg-white border-b border-gray-200 justify-between px-4 z-10">
                 <div className="flex items-center justify-between">
@@ -64,8 +64,13 @@ export const Navbar = () => {
                     <div className="flex justify-between items-center" >
                         <h1 className="text-lg font-medium text-center text-gray-800 mr-2 hidden md:block" >{data.user_name}</h1>
                         <button className="border border-gray-800 flex items-center justify-center rounded-full"
-                            onClick={(e) => setUserMenu(!userMenu)}
-                            onBlur={(e) => { if (e.relatedTarget === null) return setUserMenu(false) }} >
+                            onClick={() => setUserMenu(!userMenu)}
+                            onBlur={(e) => {
+                                console.log(e)
+                                if (e.relatedTarget === null) return setUserMenu(false);
+                                if (e.relatedTarget.attributes[0].value === `/user/${data.user_name}`) return setUserMenu(true);
+                                return setUserMenu(false);
+                            }} >
                             <img className="object-cover w-8 h-8 rounded-full" src={`${process.env.REACT_APP_APIURL}${data.user_thumbnail}`} alt="" />
                         </button>
                     </div> 

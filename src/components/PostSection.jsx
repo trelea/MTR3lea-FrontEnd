@@ -44,7 +44,7 @@ export const PostSection = ({ post }) => {
                             <img className="rounded-full object-cover h-8 w-8" src={`${process.env.REACT_APP_APIURL}${post.user_thumbnail}`} alt="" />
                             <h1 className="font-semibold text-md text-gray-700 hover:underline hover:text-blue-700">m/{post.user_name}</h1>
                         </Link>
-                        <h1 className="font-semibold text-sm text-gray-600">Posted at: {new Date(post.post_created_at).toLocaleString()}</h1>
+                        <h1 className="font-semibold text-sm text-gray-600">Posted at: {(new Date(post.post_created_at).toLocaleString()).split(",")[0]}</h1>
                     </div>
                     {
                         (data.user_name === post.user_name) && 

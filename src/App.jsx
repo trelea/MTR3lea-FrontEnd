@@ -25,8 +25,6 @@ export default function App(){
 
                 <Route path="/post/:postId" element={<Post/>} />
                 <Route path="/user/:userName" element={<Users/>} />
-
-                {/** <Route path="/account/settings" element={} /> */}
             
                 <Route path="*" element={<Page404/>} />
 
