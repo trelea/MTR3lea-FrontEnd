@@ -5,7 +5,6 @@ import { useQuery } from "react-query";
 
 export const UpdateCardUser = () => {
     const userObj = useContext(UserContext);
-
     const [user, setUser] = useState(userObj?.data?.user_name ? `${userObj.data.user_name}` : '');
 
     const { data, isLoading, isError } = useQuery({
