@@ -21,17 +21,14 @@ export const Post = () => {
     if ( isError ) return alert(isError);
 
     if ( data.msg === "Access Denied." ) return (
-        <Loyout>
+        <>
             <Home />
             <Modal post_redirection="true" />
-        </Loyout>
+        </>    
     )
 
-    if ( data.msg === "Invalid Post" ) return (
-        <Loyout>
-            <Page404 />
-        </Loyout>
-    )
+    if ( data.msg === "Invalid Post" ) return <Page404 />
+
     return (
         <Loyout>
             <div className="bg-slate-100 pt-20 flex flex-col items-center w-screen p-2 min-h-screen">

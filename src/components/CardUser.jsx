@@ -14,14 +14,14 @@ export const CardUser = ({ userInfo, posts }) => {
             <div className="mb-2 rounded-xl shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
                 <div className="relative bg-gray-800 h-24 sm:h-32 md:h-40 w-full rounded-t-xl">
                     <div className="absolute top-12 left-6 sm:top-16 sm:left-8 md:top-20 md:left-10 border-4 border-white rounded-full flex justify-center items-center">
-                        <img className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 object-cover rounded-full" src={`${userInfo.user_thumbnail}`} alt="" />
+                        <img className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 object-cover rounded-full" src={`${process.env.REACT_APP_APIURL}${userInfo.user_thumbnail}`} alt="" />
                     </div> 
                 </div>
                 <div className="bg-white rounded-b-xl border border-gray-400">
                     {
                         (data.user_name === userInfo.user_name) && 
                             <div className="flex justify-end items-center p-4 sm:p-6 md:p-10">
-                                <button className="bg-gray-800 border border-gray-800 text-white rounded-3xl font-semibold p-1 px-4 hover:bg-white hover:text-gray-800">Edit Profile</button>
+                                <button className="bg-gray-800 border border-gray-800 text-white rounded-3xl font-semibold p-1 px-4 hover:bg-white hover:text-gray-800" onClick={() => window.location.href = '/profile/settings'}>Edit Profile</button>
                             </div>
                     }
                     <div className={(data.user_name === userInfo.user_name) ? "pl-6 sm:pl-8 md:pl-10" : "pt-16 sm:pt-20 md:pt-24 pl-6 sm:pl-8 md:pl-10"}>

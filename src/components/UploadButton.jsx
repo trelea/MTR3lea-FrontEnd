@@ -6,7 +6,7 @@ export const UploadButton = () => {
 	const { data } = useContext(UserContext);
 	const [uploadPost, setUploadPost] = useState(false);
 
-	if (uploadPost) return <UploadPost uploadPost={uploadPost} setUploadPost={setUploadPost}/>
+	if (uploadPost) return <UploadPost setUploadPost={setUploadPost}/>
 
 	return (
 		<>

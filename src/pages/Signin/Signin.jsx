@@ -58,7 +58,7 @@ export const Signin = () => {
                     <div className="mt-4">
                         <div className="flex items-center justify-between">
                             <label for="password" className="block text-sm text-gray-800 ">Password</label>
-                            <Link to="/forgetpassword" className="text-sm text-gray-600 hover:underline">Forget Password?</Link>
+                            <Link to="/accounts/password/reset" className="text-sm text-gray-600 hover:underline">Forget Password?</Link>
                         </div>
 
                         

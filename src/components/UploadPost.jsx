@@ -1,12 +1,10 @@
 import { useState } from "react";
-//import { useNavigate } from "react-router-dom";
 
-export const UploadPost = ({uploadPost, setUploadPost}) => {
+export const UploadPost = ({ setUploadPost, userMenu, setUserMenu }) => {
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
 	const [thumbnail, setThumbnail] = useState(null);
-	const [postRes, setPostRes] = useState(null);
-	//const navigate = useNavigate();	
+	const [postRes, setPostRes] = useState(null);	
 
 	const [dropBtn, setDropBtn] = useState(true);
 
@@ -37,8 +35,7 @@ export const UploadPost = ({uploadPost, setUploadPost}) => {
 				if (post.msg === "New Post Created.") {
 					setPostRes("New Post Created. Wait 2 sec to redirect.");
 					setUploadPost(false);
-					window.location = `/post/${post.post_id}`;
-					//navigate(`/post/${post.post_id}`)
+					window.location.href = `/post/${post.post_id}`;
 				}
 				setPostRes(post)
 			})
@@ -50,7 +47,11 @@ export const UploadPost = ({uploadPost, setUploadPost}) => {
 			<div className="bg-white p-4 rounded-2xl w-full mx-4">
 
 				<div className="flex justify-end">
-					<button className="border border-gray-800 rounded-full hover:bg-gray-200 p-1" onClick={() => setUploadPost(!uploadPost)}>
+					<button className="border border-gray-800 rounded-full hover:bg-gray-200 p-1" onClick={() => {
+						setUploadPost(false);
+						if (userMenu) return setUserMenu(false);
+						return;
+					}}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>

@@ -18,17 +18,13 @@ export const Users = () => {
     if ( isLoading ) return <h1 className="flex justify-center items-center">Loading ...</h1>
     if ( isError ) return alert(isError);
 
-    if ( data.msg === "Invalid User") return (
-        <Loyout>
-            <Page404 />
-        </Loyout>
-    )
+    if ( data.msg === "Invalid User") return <Page404 />
 
     if ( data.msg === "Access Denied.") return (
-        <Loyout>
+        <>
             <Home />
             <Modal />
-        </Loyout>
+        </>
     )
 
     return (
@@ -38,7 +34,7 @@ export const Users = () => {
                     <CardUser userInfo={data.infos} posts={data.posts}/>
                     <div className="flex flex-col gap-2">
                         {data.posts.map((post) => {
-                            return <CardPost key={post.post_id} post={post} postOptions={false}/> 
+                            return <CardPost key={post.post_id} post={post} postOptions={true}/> 
                         })}
                     </div>
                 </div>         

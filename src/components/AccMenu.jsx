@@ -4,11 +4,11 @@ import { useContext, useState } from "react";
 import { UploadPost } from "./UploadPost";
 
 
-export const AccMenu = ({ setUserMenu }) => {
+export const AccMenu = ({ userMenu, setUserMenu }) => {
     const { data } = useContext(UserContext);
     const [uploadPost, setUploadPost] = useState(false);
 
-    if (uploadPost) return <UploadPost uploadPost={uploadPost} setUploadPost={setUploadPost}/>
+    if (uploadPost) return <UploadPost setUploadPost={setUploadPost} userMenu={userMenu} setUserMenu={setUserMenu}/>
 
     const handleLogOut = (e) => {
         e.preventDefault();
@@ -27,37 +27,35 @@ export const AccMenu = ({ setUserMenu }) => {
                         <Link to={`/user/${data.user_name}`}>
                             <li className="text-black hover:bg-slate-200 hover:rounded-lg px-2 py-1 my-1 font-medium text-lg border-b border-slate-200 flex gap-2 items-center" onClick={() => window.location.href = `/user/${data.user_name}`}>
                                 <img className="aspect-square h-5 w-5" src="https://img.icons8.com/ios-filled/50/user-male-circle.png" alt="user-male-circle"/>
-                                Profile
+                                <p>Profile</p>
                             </li>
                         </Link>
                         
                         <Link>
-                            <li className="text-black hover:bg-slate-200 hover:rounded-lg px-2 py-1 my-1 font-medium text-lg border-b border-slate-200 flex gap-2 items-center">
+                            <li className="text-black hover:bg-slate-200 hover:rounded-lg px-2 py-1 my-1 font-medium text-lg border-b border-slate-200 flex gap-2 items-center" onClick={() => window.location.href = '/profile/settings'}>
                                 <img className="aspect-square h-5 w-5" src="https://img.icons8.com/ios-filled/50/settings.png" alt="settings" />
-                                Edit Profile
+                                <p>Edit Profile</p>
                             </li>
                         </Link>
 
                         <Link>
-                            <li className="text-black hover:bg-slate-200 hover:rounded-lg px-2 py-1 my-1 font-medium text-lg border-b border-slate-200 flex gap-2 items-center">
-                                <img className="aspect-square h-5 w-5" src="https://img.icons8.com/ios/50/upload--v1.png" alt="upload--v1" onClick={() => {
-                                    setUploadPost(!uploadPost);
-                                }}/>
-                                New Ann...    
+                            <li className="text-black hover:bg-slate-200 hover:rounded-lg px-2 py-1 my-1 font-medium text-lg border-b border-slate-200 flex gap-2 items-center" onClick={() => setUploadPost(true)}>
+                                <img className="aspect-square h-5 w-5" src="https://img.icons8.com/ios/50/upload--v1.png" alt="upload--v1"/>
+                                <p>New Ann...</p>    
                             </li>
                         </Link>
                             
                         <Link>
                             <li className="text-black hover:bg-slate-200 hover:rounded-lg px-2 py-1 my-1 font-medium text-lg border-b border-slate-200 flex gap-2 items-center" onClick={() => window.location.href = '/signin'}>
                                 <img className="aspect-square h-5 w-5" src="https://img.icons8.com/ios/50/login-rounded-right--v1.png" alt="login-rounded-right--v1"/>
-                                Switch Accounts
+                                <p>Switch Accounts</p>
                             </li>
                         </Link>
                         
                         <Link>
                             <li className="text-red-600 hover:bg-slate-200 rounded-lg px-2 py-1 font-medium text-lg flex gap-2 items-center" onClick={e => handleLogOut(e)}>
                                 <img className="aspect-square h-5 w-5" src="https://img.icons8.com/ios/50/logout-rounded-left.png" alt="logout-rounded-left"/>
-                                Logout
+                                <p>Logout</p>
                             </li>
                         </Link>
                         
