@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { Link, useNavigate, ScrollRestoration } from "react-router-dom";
+import { Link, ScrollRestoration } from "react-router-dom";
 import { UserContext } from "./Loyout";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ShareBtn } from "./ShareBtn";
@@ -7,7 +7,6 @@ import { PostOptions } from "./PostOptions";
 
 export const CardPost = ({ post, postOptions }) => {
     const { data } = useContext(UserContext);
-    const navigate = useNavigate();
     const [copied, setCopied] = useState(false);
     const [previewPostOptions, setPreviewPostOptions] = useState(false);
 
