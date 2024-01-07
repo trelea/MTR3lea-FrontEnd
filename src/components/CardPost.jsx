@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { Link, ScrollRestoration } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UserContext } from "./Loyout";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ShareBtn } from "./ShareBtn";
