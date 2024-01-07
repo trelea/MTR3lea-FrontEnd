@@ -72,7 +72,7 @@ export const CardPost = ({ post, postOptions }) => {
                         <h1 className="font-normal text-sm text-gray-700 pt-1 w-fit hover:underline hover:text-blue-700">Click to read more ...</h1>
                         { post.post_thumbnail !== "/images/postsThumbnails/defaultPostThumbnail.jpg" && 
                             <div className="flex justify-center items-center">
-                                <img className="mt-4 rounded-lg max-h-[500px] min-h-[250px]" src={`${process.env.REACT_APP_APIURL}${post.post_thumbnail}`} alt="" />
+                                <img className="mt-4 rounded-lg object-cover max-h-[500px] min-h-[100px]" src={`${process.env.REACT_APP_APIURL}${post.post_thumbnail}`} alt="" />
                             </div>
                         }
                         

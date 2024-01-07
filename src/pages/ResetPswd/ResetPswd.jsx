@@ -2,6 +2,7 @@ import logo from '../../logo2.svg';
 import { useState } from 'react';
 import { StepOne } from './StepOne';
 import { StepTwo } from './StepTwo';
+import { Link } from "react-router-dom";
 
 export const ResetPswd = () => {
     const [step, setStep] = useState(1);
@@ -17,6 +18,7 @@ export const ResetPswd = () => {
                 { (step === 1) && <StepOne setStep={setStep} /> }
                 { (step === 2) && <StepTwo /> }
 
+                <p className="mt-8 text-sm font-light text-center text-gray-400"> Don't have an account ? <Link to="/signup" className="font-medium text-gray-700 hover:underline">Create One</Link></p>
             </div>
         </div>
     )

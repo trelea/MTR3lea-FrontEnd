@@ -17,16 +17,17 @@ export const CardUser = ({ userInfo, posts }) => {
                         <img className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 object-cover rounded-full" src={`${process.env.REACT_APP_APIURL}${userInfo.user_thumbnail}`} alt="" />
                     </div> 
                 </div>
+                
                 <div className="bg-white rounded-b-xl border border-gray-400">
                     {
                         (data.user_name === userInfo.user_name) && 
                             <div className="flex justify-end items-center p-4 sm:p-6 md:p-10">
-                                <button className="bg-gray-800 border border-gray-800 text-white rounded-3xl font-semibold p-1 px-4 hover:bg-white hover:text-gray-800" onClick={() => window.location.href = '/profile/settings'}>Edit Profile</button>
+                                <button className="bg-gray-800 border border-gray-800 text-white rounded-3xl font-semibold p-1 px-4 hover:bg-white hover:text-gray-800" onClick={() => window.location.href = '/accounts/profile/settings'}>Edit Profile</button>
                             </div>
                     }
                     <div className={(data.user_name === userInfo.user_name) ? "pl-6 sm:pl-8 md:pl-10" : "pt-16 sm:pt-20 md:pt-24 pl-6 sm:pl-8 md:pl-10"}>
-                        <h1 className="font-bold text-2xl text-black">{userInfo.user_additional_name}</h1>
-                        <h3 className="font-medium text-base text-gray-700">@{userInfo.user_name}</h3>
+                        <h1 className="font-bold text-2xl text-black">{userInfo.user_name}</h1>
+                        <h3 className="font-medium text-base text-gray-700">@{userInfo.user_additional_name}</h3>
                     </div>
 
                     <div className="px-6 sm:px-8 md:px-10 mt-4 font-normal">

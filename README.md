@@ -2,6 +2,8 @@
 
 Welcome to __[m]TR3lea__, a cutting-edge social media platform that focuses on sharing and engaging with Interesting Announcements. Built with the powerful __PERN__ stack (PostgreSQL, Express.js, React.js, and Node.js), __[m]TR3lea__ combines a seamless user experience with robust features.
 
+This is a full stack application which was built using __PERN__ stack. Main fundamental functionalities such as account support, posting, and commenting have been implemented. The application authenticates users using JWT tokens. Users are able to edit information relating to their account. Users are also allowed to change their avatar images and posts thumbnails. All media files in this application are stored on Backend VPS, all users data is encrypted and stored in PostgreSQL DataBase.
+
 Check Platform On: WILL_PASTE_A_LINK
 
 ![Home Page](./docs/imgs/home.png)
@@ -9,11 +11,16 @@ Check Platform On: WILL_PASTE_A_LINK
 ## Technologies Used
 
 - ### Front-end Development:
+    - Javascript
     - React.js Library
     - TailwindCSS CSS Framework for a sleek and responsive design
     - React-Query for efficient API fetching
+    - React-Router for url routes
 
 - ### Back-end Development:
+    - Javascript
+    - Structured Query Language (SQL) DB building
+    - Pyhton for automation testing 
     - PostgreSQL as the main database
     - PG module as ORM for interaction between express and PostgreSQL
     - Express.js for building API endpoints, controllers, middlewares, routes...

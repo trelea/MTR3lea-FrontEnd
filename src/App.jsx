@@ -8,6 +8,7 @@ import { Post } from "./pages/Post/Post";
 import { Users } from "./pages/Users/Users";
 import { Profile } from "./pages/Profile/Profile";
 import { ResetPswd } from "./pages/ResetPswd/ResetPswd";
+import { AboutUs } from "./pages/AboutUs/AboutUs";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -29,6 +30,9 @@ export default function App(){
 
                 <Route path="/accounts/profile/settings" element={<Profile/>} />
                 <Route path="/accounts/password/reset" element={<ResetPswd/>} />
+
+                <Route path="/about" element={<AboutUs/>}/>
+                <Route path="/aboutus" element={<AboutUs/>}/>
             
                 <Route path="*" element={<Page404/>} />
 
