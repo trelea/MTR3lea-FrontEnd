@@ -4,7 +4,7 @@ Welcome to __[m]TR3lea__, a cutting-edge social media platform that focuses on s
 
 This is a full stack application which was built using __PERN__ stack. Main fundamental functionalities such as account support, posting, and commenting have been implemented. The application authenticates users using JWT tokens. Users are able to edit information relating to their account. Users are also allowed to change their avatar images and posts thumbnails. All media files in this application are stored on Backend VPS, all users data is encrypted and stored in PostgreSQL DataBase.
 
-Check Platform On: WILL_PASTE_A_LINK
+Check Project On: https://trelea-web.netlify.app
 
 ![Home Page](./docs/imgs/home.png)
 
