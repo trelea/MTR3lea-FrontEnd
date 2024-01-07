@@ -23,15 +23,16 @@ export const AccMenu = ({ userMenu, setUserMenu }) => {
             <div className="fixed z-50 top-16 right-0" id="user-menu">
                 <div className="border border-gray-300 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-xl mr-2 mt-4 bg-white">
                     <ul className="p-2 px-4">
-
-                        <Link to={`/user/${data.user_name}`} {/*onClick={() => window.location.href = `/user/${data.user_name}`}*/}>
+                        {/**onClick={() => window.location.href = `/user/${data.user_name}`} */}
+                        <Link to={`/user/${data.user_name}`} >
                             <li className="text-black hover:bg-slate-200 hover:rounded-lg px-2 py-1 my-1 font-medium text-lg border-b border-slate-200 flex gap-2 items-center" >
                                 <img className="aspect-square h-5 w-5" src="https://img.icons8.com/ios-filled/50/user-male-circle.png" alt="user-male-circle"/>
                                 <p>Profile</p>
                             </li>
                         </Link>
                         
-                        <Link to={'/accounts/profile/settings'} onClick={() => window.location.href = '/accounts/profile/settings'}>
+                        {/**onClick={() => window.location.href = '/accounts/profile/settings'} */}
+                        <Link to={'/accounts/profile/settings'} >
                             <li className="text-black hover:bg-slate-200 hover:rounded-lg px-2 py-1 my-1 font-medium text-lg border-b border-slate-200 flex gap-2 items-center" >
                                 <img className="aspect-square h-5 w-5" src="https://img.icons8.com/ios-filled/50/settings.png" alt="settings" />
                                 <p>Edit Profile</p>
@@ -45,7 +46,8 @@ export const AccMenu = ({ userMenu, setUserMenu }) => {
                             </li>
                         </Link>
                             
-                        <Link to={'/signin'} onClick={() => window.location.href = '/signin'}>
+                        {/**onClick={() => window.location.href = '/signin'} */}
+                        <Link to={'/signin'} >
                             <li className="text-black hover:bg-slate-200 hover:rounded-lg px-2 py-1 my-1 font-medium text-lg border-b border-slate-200 flex gap-2 items-center" >
                                 <img className="aspect-square h-5 w-5" src="https://img.icons8.com/ios/50/login-rounded-right--v1.png" alt="login-rounded-right--v1"/>
                                 <p>Switch Accounts</p>
