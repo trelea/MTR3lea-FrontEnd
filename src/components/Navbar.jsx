@@ -75,10 +75,10 @@ export const Navbar = () => {
                     : 
                     <div className="flex justify-between items-center">
                         <button className="bg-gray-800 border border-gray-800 text-white rounded-3xl font-semibold p-1 px-4">
-                            <Link to='/signin'onClick={() => window.location.href='/signin'}>SignIn</Link>
+                            <Link to='/signin'>SignIn</Link>
                         </button>
                         <button className="bg-white text-gray-800 border border-gray-800 rounded-3xl font-semibold p-1 px-4 ml-4 hidden md:block">
-                            <Link to='/signup' onClick={() => window.location.href='/signup'}>SignUp</Link>
+                            <Link to='/signup'>SignUp</Link>
                         </button>
                     </div>
                 }      
