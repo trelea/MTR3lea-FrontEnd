@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, ScrollRestoration } from "react-router-dom";
 import { UserContext } from "./Loyout";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ShareBtn } from "./ShareBtn";
@@ -22,7 +22,7 @@ export const CardPost = ({ post, postOptions }) => {
         fetch(`${process.env.REACT_APP_APIURL}/api/content/like/${post.post_id}`, { method: 'PUT', credentials: 'include' })
             .then(res => res.json())
             .then(status => {
-                if (status.msg) return navigate(`/post/${post.post_id}`);
+                if (status.msg) return window.location.href = `/post/${post.post_id}`;
                 if (status.likePost) { setLikeStatus({ userLiked: !likeStatus.userLiked, Likes: likeStatus.Likes + 1 })}
                 if (status.unlikePost) { setLikeStatus({ userLiked: !likeStatus.userLiked, Likes: likeStatus.Likes - 1 }) }   
             })
