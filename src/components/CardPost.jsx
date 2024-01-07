@@ -9,7 +9,6 @@ export const CardPost = ({ post, postOptions, setAuthenticated }) => {
     const { data } = useContext(UserContext);
     const [copied, setCopied] = useState(false);
     const [previewPostOptions, setPreviewPostOptions] = useState(false);
-    const [isAuthenticated, setAuthenticates] = useState(false);
 
     const [likeStatus, setLikeStatus] = useState({
         userLiked: post.post_likes.includes(data.user_name),
