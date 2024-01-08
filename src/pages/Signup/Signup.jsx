@@ -54,8 +54,8 @@ export const Signup = () => {
             setFetchRes('Successfully Created Account.');
             const queryParams = new URLSearchParams(location.search);
             setTimeout(() => {
-                if (queryParams.get('post')) return navigate(`/signin/?post=${queryParams.get('post')}`);
-                return navigate('/signin');
+                if (queryParams.get('post')) return navigate(`/signin/?post=${queryParams.get('post')}`, { replace: true});
+                return navigate('/signin', { replace: true });
             }, 3000)
         }
     }

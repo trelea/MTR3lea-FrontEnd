@@ -4,7 +4,10 @@ export const Comment = ({ comment }) => {
 	return (
 		<>
 			<div className="flex gap-2 items-center">
-                <Link to={`/user/${comment.user_name}`} className="flex gap-2 items-center">
+                <Link  className="flex gap-2 items-center"
+                    to={`/user/${comment.user_name}`}
+                    reloadDocument
+                    preventScrollReset>
                     <img className="rounded-full object-cover h-6 w-6" src={`${process.env.REACT_APP_APIURL}${comment.user_thumbnail}`} alt="" />
                     <h1 className="font-semibold text-sm text-gray-700 hover:underline hover:text-blue-700">m/{comment.user_name}</h1>
                 </Link>

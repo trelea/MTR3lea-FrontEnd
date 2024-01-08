@@ -9,10 +9,7 @@ export const Signin = () => {
     const location = useLocation();
 
     const [showPassword, setShowPassword] = useState(false);
-    const [loginBody, setLoginBody] = useState({
-        email: '',
-        password: ''
-    });
+    const [loginBody, setLoginBody] = useState({ email: '', password: '' });
     const [fetchRes, setFetchRes] = useState(null);
 
     const navigate = useNavigate();
@@ -28,8 +25,8 @@ export const Signin = () => {
         if ( json.msg === "Logged In." ) {
             setFetchRes("Successfully Logged In.");
             const queryParams = new URLSearchParams(location.search);
-            if (queryParams.get('post')) return navigate(`/post/${queryParams.get('post')}`);
-            return navigate('/home');
+            if (queryParams.get('post')) return navigate(`/post/${queryParams.get('post')}`, { replace: true });
+            return navigate('/home', { replace: true });
         }
         setFetchRes(json);
         

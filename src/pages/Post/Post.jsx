@@ -2,7 +2,6 @@ import { Loyout } from "../../components/Loyout";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { Modal } from "../../components/Modal";
-import { Home } from "../Home/Home";
 import { Page404 } from "../404";
 import { UploadButton } from "../../components/UploadButton";
 import { PostSection } from "../../components/PostSection";
@@ -20,12 +19,7 @@ export const Post = () => {
     if ( isLoading ) return <h1 className="flex justify-center items-center">Loading ...</h1>
     if ( isError ) return alert(isError);
 
-    if ( data.msg === "Access Denied." ) return (
-        <>
-            <Home />
-            <Modal post_redirection="true" />
-        </>    
-    )
+    if ( data.msg === "Access Denied." ) return <Modal post_redirection="true" />
 
     if ( data.msg === "Invalid Post" ) return <Page404 />
 

@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { Page404 } from "../404";
 import { Modal } from "../../components/Modal";
-import { Home } from "../Home/Home";
 import { CardPost } from "../../components/CardPost";
 import { CardUser } from "../../components/CardUser";
 
@@ -20,12 +19,7 @@ export const Users = () => {
 
     if ( data.msg === "Invalid User") return <Page404 />
 
-    if ( data.msg === "Access Denied.") return (
-        <>
-            <Home />
-            <Modal />
-        </>
-    )
+    if ( data.msg === "Access Denied.") return <Modal />
 
     return (
         <Loyout>

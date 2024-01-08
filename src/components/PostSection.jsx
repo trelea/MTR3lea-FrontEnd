@@ -40,7 +40,10 @@ export const PostSection = ({ post }) => {
 
                 <div className="relative flex justify-between">
                     <div className="flex gap-2 items-center">
-                        <Link to={`/user/${post.user_name}`} className='flex gap-2 items-center'>
+                        <Link  className='flex gap-2 items-center'
+                            to={`/user/${post.user_name}`}
+                            reloadDocument
+                            preventScrollReset>
                             <img className="rounded-full object-cover h-8 w-8" src={`${process.env.REACT_APP_APIURL}${post.user_thumbnail}`} alt="" />
                             <h1 className="font-semibold text-md text-gray-700 hover:underline hover:text-blue-700">m/{post.user_name}</h1>
                         </Link>

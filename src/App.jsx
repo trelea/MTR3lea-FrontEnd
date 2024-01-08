@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
 
 import { Signin } from "./pages/Signin/Signin";
 import { Signup } from "./pages/Signup/Signup";
@@ -21,22 +21,18 @@ export default function App(){
                 <Route path="/" element={<Home/>} />
                 <Route path="/home" element={<Home/>} />
                 <Route path="/index" element={<Home/>} />
-
                 <Route path="/signin" element={<Signin/>} />
                 <Route path="/signup" element={<Signup/>} />
-
                 <Route path="/post/:postId" element={<Post/>} />
                 <Route path="/user/:userName" element={<Users/>} />
-
                 <Route path="/accounts/profile/settings" element={<Profile/>} />
                 <Route path="/accounts/password/reset" element={<ResetPswd/>} />
-
                 <Route path="/about" element={<AboutUs/>}/>
                 <Route path="/aboutus" element={<AboutUs/>}/>
             
                 <Route path="*" element={<Page404/>} />
 
-            </Routes>
+            </Routes>               
         </QueryClientProvider>
     )
 }
