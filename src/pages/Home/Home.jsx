@@ -1,30 +1,21 @@
-import { useState, useEffect, } from "react";
 import { Loyout } from "../../components/Loyout";
 import { CardPost } from "../../components/CardPost";
 import { UploadButton } from "../../components/UploadButton.jsx";
 import { useSearchParams } from "react-router-dom";
 import { Pagination } from "../../components/Pagination.jsx";
+import { Page404 } from "../404.jsx";
+import { useQuery } from "react-query";
 
 
 export const Home = () => {
     const [serachParams, setSearchParams] = useSearchParams({ page: 1, limit: 20 });
-    const [posts, setPosts] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [isError,   setIsError  ] = useState(false);
 
-    useEffect(() => {
-        setIsLoading(true);
-        fetch(`${process.env.REACT_APP_APIURL}/api/content/?page=${serachParams.get('page')}&limit=${serachParams.get('limit')}`, { method: 'GET' })
-            .then(res => res.json())
-            .then(p => {
-                if (p.msg) return alert(p.msg);
-                setPosts(p.Posts); 
-                setIsLoading(false) 
-            })
-            .catch((e) => setIsError(e));
-    }, [serachParams])
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['fetchHomePosts'],
+        queryFn: () => fetch(`${process.env.REACT_APP_APIURL}/api/content/?page=${serachParams.get('page')}&limit=${serachParams.get('limit')}`, { method: 'GET' }).then(res => res.json())
+    }) 
 
-
+    if ( data?.msg === "You are too far" ) return <Page404 />
     if ( isLoading ) return <h1 className="flex justify-center items-center">Loading ...</h1>
     if ( isError ) return alert(isError);
     
@@ -34,7 +25,7 @@ export const Home = () => {
                 <div className="flex flex-col gap-2 w-full sm:w-[95%] md:w-[80%] lg:w-[65%] xl:w-[50%] 2xl:w-[40%]">
                     <UploadButton/>
                     <div className="flex flex-col gap-2">
-                        {posts.map((post) => {
+                        {data.Posts.map((post) => {
                             return <CardPost key={post.post_id} post={post} postOptions={false} /> 
                         })}
                     </div>

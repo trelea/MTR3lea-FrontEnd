@@ -1,41 +1,51 @@
+import { Link, useNavigate } from "react-router-dom"
 
-export const Pagination = ({ serachParams, setSearchParams }) => {
+
+export const Pagination = ({ serachParams }) => {
     return (
         <div className="flex flex-col justify-center items-center mb-4">
+
             <div className="flex gap-1">
-                <select id="underline_select" className="block py-2 px-3 text-lg font-medium text-gray-800 bg-transparent text-center hover:bg-gray-200 rounded-2xl border border-gray-400">
-                    <option defaultValue>Limit {serachParams.get("limit")}</option>
-                    <option value="20" onClick={() => setSearchParams({
-                        page: serachParams.get("page"),
-                        limit: "20"
-                    })}>20 posts</option>
-                    <option value="50" onClick={() => setSearchParams({
-                        page: serachParams.get("page"),
-                        limit: "50"
-                    })}>50 posts</option>
-                    <option value="100" onClick={() => setSearchParams({
-                        page: serachParams.get("page"),
-                        limit: "100"
-                    })}>100 posts</option>
-                </select>
+                <details className="p-1 px-4 text-lg font-medium text-gray-800 bg-white text-center rounded-xl shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] border border-gray-100">   
+                    <summary>Limit {serachParams.get("limit")}</summary>
+                    <div className="flex flex-col border-t mt-1 border-gray-300">
+                        <Link
+                            className="mt-1 hover:bg-gray-200 rounded-lg px-2"
+                            to={`/?page=${serachParams.get("page")}&limit=20`}
+                            preventScrollReset
+                            reloadDocument>20 posts</Link>
+                        <Link 
+                            className="mt-1 hover:bg-gray-200 rounded-lg px-2"
+                            to={`/?page=${serachParams.get("page")}&limit=50`} 
+                            preventScrollReset
+                            reloadDocument>50 posts</Link>
+                        <Link 
+                            className="mt-1 hover:bg-gray-200 rounded-lg px-2"
+                            to={`/?page=${serachParams.get("page")}&limit=100`} 
+                            preventScrollReset
+                            reloadDocument>100 posts</Link>
+                    </div>
+                </details>
             </div>
             
-            <nav className="flex mt-4 items-center">
-                <button disabled={ Number(serachParams.get("page")) === 1 ? true : false }
-                onClick={() => setSearchParams({
-                    limit: serachParams.get("limit"),
-                    page: Number(serachParams.get("page")) - 1
-                })}>
-                    <img className="rotate-180" width="40" height="40" src="https://img.icons8.com/ios-filled/50/circled-chevron-right.png" alt="circled-chevron-right"/>
-                </button>
-                <h1 className="text-2xl border rounded-full aspect-square px-2.5 border-gray-800 mx-4 ">{serachParams.get("page")}</h1>
-                <button onClick={() => setSearchParams({
-                    limit: serachParams.get("limit"),
-                    page: Number(serachParams.get("page")) + 1
-                })}>
-                    <img width="40" height="40" src="https://img.icons8.com/ios-filled/50/circled-chevron-right.png" alt="circled-chevron-right"/>
-                </button>
-            </nav>
+            <div className="flex mt-4 items-center">
+
+                <div className="flex flex-row shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] border border-gray-100 text-lg font-medium text-gray-800 bg-white rounded-xl">
+                    <button className="py-1 px-4 flex items-center justify-center hover:bg-gray-800 hover:text-white hover:rounded-l-xl">
+                        <Link
+                            to={ Number(serachParams.get("page")) === 1 ? '#' : `/?page=${Number(serachParams.get("page")) - 1}&limit=${serachParams.get("limit")}`}
+                            preventScrollReset
+                            reloadDocument>Prev</Link>
+                    </button>
+                    <h1 className="flex items-center justify-center px-4 border-r border-l">{serachParams.get("page")}</h1>
+                    <button className="py-1 px-4 flex items-center justify-center hover:bg-gray-800 hover:text-white hover:rounded-r-xl">
+                        <Link
+                            to={`/?page=${Number(serachParams.get("page")) + 1}&limit=${serachParams.get("limit")}`}
+                            preventScrollReset
+                            reloadDocument>Next</Link>
+                    </button>
+                </div>
+            </div>
         </div>
         
     )

@@ -22,7 +22,7 @@ export const Page404 = () => {
                     <div className="mt-6">
                         <button 
                         className="w-full px-6 py-2.5 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
-                        onClick={() => navigate(-1)}>Go Back</button>
+                        onClick={() => navigate(-1, { replace: true})}>Go Back</button>
                     </div>
                 </div>
             </div>
