@@ -93,11 +93,7 @@ export const Signup = () => {
                     }}>Next</button>
                 </div>
                 <p className="mt-8 text-sm font-light text-center text-gray-400"> Have an account already ? 
-                    <Link className="font-medium text-gray-700 hover:underline"
-                        to="/signin"
-                        onClick={() => navigate('/signin', { replace: true })}
-                        preventScrollReset
-                        reloadDocument>Sign In</Link>
+                    <Link className="font-medium text-gray-700 hover:underline" to="/signin" preventScrollReset>Sign In</Link>
                 </p>
             </div>
         </div>
