@@ -96,7 +96,8 @@ export const Signup = () => {
                     <Link className="font-medium text-gray-700 hover:underline"
                         to="/signin"
                         onClick={() => navigate('/signin', { replace: true })}
-                        preventScrollReset>Sign In</Link>
+                        preventScrollReset
+                        reloadDocument>Sign In</Link>
                 </p>
             </div>
         </div>
