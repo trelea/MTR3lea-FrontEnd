@@ -92,7 +92,13 @@ export const Signup = () => {
                         if (step === 2) { stepTwoFunction(e) }
                     }}>Next</button>
                 </div>
-                <p className="mt-8 text-sm font-light text-center text-gray-400"> Have an account already ? <Link to="/signin" className="font-medium text-gray-700 hover:underline">Sign In</Link></p>
+                <p className="mt-8 text-sm font-light text-center text-gray-400"> Have an account already ? 
+                    <Link className="font-medium text-gray-700 hover:underline"
+                        to="/signin"
+                        onClick={() => navigate('/signin', { replace: true })}
+                        reloadDocument
+                        preventScrollReset>Sign In</Link>
+                </p>
             </div>
         </div>
     )

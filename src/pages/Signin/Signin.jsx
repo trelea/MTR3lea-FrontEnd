@@ -90,7 +90,15 @@ export const Signin = () => {
                         </button>
                     </div>
                 </form>
-                <p className="mt-8 text-sm font-light text-center text-gray-400"> Don't have an account ? <Link to="/signup" className="font-medium text-gray-700 hover:underline">Create One</Link></p>
+                <p className="mt-8 text-sm font-light text-center text-gray-400"> Don't have an account ? 
+                    <Link className="font-medium text-gray-700 hover:underline"
+                        to="/signup"
+                        onClick={() => navigate('/signup', { replace: true})}
+                        reloadDocument
+                        preventScrollReset>
+                        Create One
+                    </Link>
+                </p>
             </div>
         </div>
     )
